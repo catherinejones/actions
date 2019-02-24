@@ -5,6 +5,8 @@ LABEL "com.github.actions.description"="Run the test suite and generate test cov
 LABEL "com.github.actions.icon"="trending-up"
 LABEL "com.github.actions.color"="green"
 
+RUN apk add --no-cache git
+
 COPY test-runner /usr/bin/test-runner
 
 ENTRYPOINT ["/usr/bin/test-runner"]
