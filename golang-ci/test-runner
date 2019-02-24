@@ -1,11 +1,16 @@
 #!/bin/sh
 
 GOPATH=/src/go
-PROJECT_PATH=${GOPATH}/github.com/${GITHUB_REPOSITORY}
+GITHUB_PATH=$GOPATH/src/github.com/$(dirname $GITHUB_REPOSITORY)
+PROJECT_PATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY
 
-
-mkdir -p ${PROJECT_PATH}
+# setup project directory
+echo "setting up ${GITHUB_PATH}"
+mkdir -p ${GITHUB_PATH}
+ln -s /github/workspace $PROJECT_PATH
 
 cd ${PROJECT_PATH}
+
+echo "using ${PROJECT_PATH} as the project path"
 
 go test -coverprofile=coverage.out $*
