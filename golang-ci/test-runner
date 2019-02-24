@@ -5,12 +5,16 @@ GITHUB_PATH=$GOPATH/src/github.com/$(dirname $GITHUB_REPOSITORY)
 PROJECT_PATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY
 
 # setup project directory
-echo "setting up ${GITHUB_PATH}"
+echo "👷🏻‍♀️ setting up ${GITHUB_PATH}"
 mkdir -p ${GITHUB_PATH}
 ln -s /github/workspace $PROJECT_PATH
 
 cd ${PROJECT_PATH}
 
-echo "using ${PROJECT_PATH} as the project path"
+echo "📦 using ${PROJECT_PATH} as the project path"
 
+echo "⬇️ downloading dependencies"
+go get -d ./...
+
+echo "📈 running test suite"
 go test -coverprofile=coverage.out $*
