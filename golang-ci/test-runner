@@ -1,0 +1,11 @@
+#!/bin/sh
+
+GOPATH=/src/go
+PROJECT_PATH=${GOPATH}/github.com/${GITHUB_REPOSITORY}
+
+
+mkdir -p ${PROJECT_PATH}
+
+cd ${PROJECT_PATH}
+
+go test -coverprofile=coverage.out $*
