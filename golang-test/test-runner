@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e -o pipefail
+
 GOPATH=/src/go
 GITHUB_PATH=$GOPATH/src/github.com/$(dirname $GITHUB_REPOSITORY)
 PROJECT_PATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY
@@ -17,4 +19,4 @@ echo "⬇️ downloading dependencies"
 go get -d ./...
 
 echo "📈 running test suite"
-go test -coverprofile=coverage.out $*
+go test -covermode=count -coverprofile=coverage.out $*
