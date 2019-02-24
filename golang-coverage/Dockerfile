@@ -7,6 +7,7 @@ LABEL "com.github.actions.color"="red"
 
 RUN apk add --no-cache \
         curl && \
-    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/bin/cc-test-reporter
+    curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/bin/cc-test-reporter && \
+    chmod a+x /usr/bin/cc-test-reporter
 
-ENTRYPOINT ["cc-test-reporter"]
+ENTRYPOINT ["/usr/bin/cc-test-reporter"]
