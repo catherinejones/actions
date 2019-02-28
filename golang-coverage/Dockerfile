@@ -11,4 +11,7 @@ RUN apk add --no-cache \
     && curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/bin/cc-test-reporter \
     && chmod a+x /usr/bin/cc-test-reporter
 
+ENV GOPATH=/github/go
+
+
 ENTRYPOINT ["/usr/bin/cc-test-reporter"]

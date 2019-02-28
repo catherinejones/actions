@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-GOPATH=/src/go
+GOPATH=/github/go
 GITHUB_PATH=$GOPATH/src/github.com/$(dirname $GITHUB_REPOSITORY)
 PROJECT_PATH=$GOPATH/src/github.com/$GITHUB_REPOSITORY
 
